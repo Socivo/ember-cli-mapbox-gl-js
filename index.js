@@ -9,14 +9,19 @@ module.exports = {
 
   treeForVendor: function (tree) {
 
-    var mapboxglJS = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist', 'mapbox-gl.js');
-    var vendorTree = new Funnel(mapboxglJS);
-    return mergeTrees([tree, vendorTree]);
+    var mapboxglJS = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist');
+    var vendorTree = new Funnel(mapboxglJS, {
+      include: ['mapbox-gl.js']
+    });
+
+    return mergeTrees([ vendorTree]);
   },
   treeForStyles: function (tree) {
-    var mapboxCSS = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist', 'mapbox-gl.css');
+    var mapboxCSS = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist');
     var mapboxSVG = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist', 'svg');
-    var cssTree = new Funnel(mapboxCSS);
+    var cssTree = new Funnel(mapboxCSS, {
+      include: ['mapbox-gl.css']
+    });
     var svgTree = new Funnel(mapboxSVG, {
       include: ['*.svg'],
       destDir: 'svg'
