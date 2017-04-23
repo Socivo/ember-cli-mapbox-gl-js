@@ -1,6 +1,6 @@
 
-export function initialize(application) {
-  let config = application.container.lookupFactory('config:environment');
+export function initialize(applicationInstance) {
+  let config = applicationInstance.application;
 
   if (!config.mapbox || !config.mapbox.accessToken) {
     console.error('Please specify your mapbox.accessToken in your config.');
