@@ -6,19 +6,20 @@ var Funnel = require('broccoli-funnel');
 
 module.exports = {
   name: 'ember-cli-mapbox-gl-js',
-  mapboxModulePath: path.join(project.getProjectRoot(), 'node_modules', 'mapbox-gl', 'dist'),
-  mapboxglJS: path.join(mapboxModulePath, 'mapbox-gl.js'),
-  mapboxCSS: path.join(mapboxModulePath, 'mapbox-gl.css'),
-  mapboxSVG: path.join(mapboxModulePath, 'svg'),
 
   treeForVendor: function (tree) {
+
+    var mapboxglJS = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist', 'mapbox-gl.js');
     var vendorTree = new Funnel(mapboxglJS);
     return mergeTrees([tree, vendorTree]);
   },
   treeForStyles: function (tree) {
+    var mapboxCSS = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist', 'mapbox-gl.css');
+    var mapboxSVG = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist', 'svg');
     var cssTree = new Funnel(mapboxCSS);
     var svgTree = new Funnel(mapboxSVG, {
-      include: ['*.svg']
+      include: ['*.svg'],
+      destDir: 'svg'
 
     });
     return mergeTrees([tree, cssTree, svgTree]);
