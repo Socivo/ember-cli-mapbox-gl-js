@@ -1,17 +1,24 @@
 {
-  "name": "ember-cli-mapbox-gl-js",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "name": "@socivointeractive/ember-cli-mapbox-gl-js",
+  "version": "1.0.0",
+  "description": "Ember cli add on for Mapbox-gl JS",
   "keywords": [
     "ember-addon"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Sanket Sharma",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Socivo/ember-cli-intl-tel-input.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Socivo/ember-cli-intl-tel-input/issues",
+    "email": "sanket.sharma@socivo.io"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
@@ -39,7 +46,8 @@
     "ember-resolver": "^2.0.3",
     "ember-source": "~2.12.0",
     "ember-welcome-page": "^2.0.2",
-    "loader.js": "^4.2.3"
+    "loader.js": "^4.2.3",
+    "mapbox-gl": "^0.36.0"
   },
   "engines": {
     "node": ">= 4"
