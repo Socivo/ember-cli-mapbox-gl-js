@@ -1,5 +1,5 @@
 {
-  "name": "@socivointeractive/ember-cli-mapbox-gl-js",
+  "name": "ember-cli-mapbox-gl-js",
   "version": "1.0.0",
   "description": "Ember cli add on for Mapbox-gl JS",
   "keywords": [
