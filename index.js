@@ -37,7 +37,7 @@ module.exports = {
       files: ['mapbox-gl.js']
     });
 
-    return mergeTrees([vendorTree]);
+    return vendorTree;
   },
   treeForStyles: function (tree) {
     var mapboxCSS = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist');
@@ -46,7 +46,7 @@ module.exports = {
       files: ['mapbox-gl.css']
     });
 
-    return mergeTrees([cssTree, svgTree]);
+    return cssTree;
 
   },
   treeForPublic: function(tree) {
