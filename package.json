@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-mapbox-gl-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ember cli add on for Mapbox-gl JS",
   "keywords": [
     "ember-addon"
@@ -13,10 +13,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Socivo/ember-cli-intl-tel-input.git"
+    "url": "git@github.com:Socivo/ember-cli-mapbox-gl-js.git"
   },
   "bugs": {
-    "url": "https://github.com/Socivo/ember-cli-intl-tel-input/issues",
+    "url": "https://github.com/Socivo/ember-cli-mapbox-gl-js/issues",
     "email": "sanket.sharma@socivo.io"
   },
   "scripts": {
