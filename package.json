@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-mapbox-gl-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Ember cli add on for Mapbox-gl JS",
   "keywords": [
     "ember-addon"
