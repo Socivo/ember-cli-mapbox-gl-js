@@ -1,24 +1,28 @@
 /* eslint-env node */
 'use strict';
+var BroccoliDebug = require('broccoli-debug');
 var path = require('path');
 var mergeTrees = require('broccoli-merge-trees');
 var Funnel = require('broccoli-funnel');
 
 module.exports = {
   name: 'ember-cli-mapbox-gl-js',
+  init() {
+    this.debugTree = BroccoliDebug.buildDebugCallback(`some-awesome:${this.parent.name}`);
+  },
+
   included: function(app) {
     this._super.included.apply(this, arguments);
-    //auto import required files for mapbox
-    let mapboxglJS = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist');
     let mapboxSVG = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist', 'svg');
     let svgTree = new Funnel(mapboxSVG, {
       include: ['*.svg'],
       destDir: 'svg'
 
     });
+    //JS files are automatically moved to vendor folder
 
-    this.app.import(path.join(mapboxglJS, 'mapbox-gl.js'));
-    this.app.import(path.join(mapboxglJS, 'mapbox-gl.css'));
+    this.app.import(path.join('vendor/mapbox-gl.js'));
+    this.app.import(path.join('vendor/mapbox-gl.css'));
     this.app.import(svgTree);
 
 
@@ -36,16 +40,15 @@ module.exports = {
     var vendorTree = new Funnel(mapboxglJS, {
       files: ['mapbox-gl.js']
     });
-
     return vendorTree;
   },
   treeForStyles: function (tree) {
     var mapboxCSS = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist');
 
     var cssTree = new Funnel(mapboxCSS, {
-      files: ['mapbox-gl.css']
+      files: ['mapbox-gl.css'],
+      destDir: 'vendor'
     });
-
     return cssTree;
 
   },
