@@ -1,16 +1,11 @@
 /* eslint-env node */
 'use strict';
-var BroccoliDebug = require('broccoli-debug');
 var path = require('path');
 var mergeTrees = require('broccoli-merge-trees');
 var Funnel = require('broccoli-funnel');
 
 module.exports = {
   name: 'ember-cli-mapbox-gl-js',
-  init() {
-    this.debugTree = BroccoliDebug.buildDebugCallback(`some-awesome:${this.parent.name}`);
-  },
-
   included: function(app) {
     this._super.included.apply(this, arguments);
     let mapboxSVG = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist', 'svg');
@@ -38,7 +33,7 @@ module.exports = {
 
     var mapboxglJS = path.join(this.app.project.root, 'node_modules', 'mapbox-gl', 'dist');
     var vendorTree = new Funnel(mapboxglJS, {
-      files: ['mapbox-gl.js']
+      files: ['mapbox-gl.js', 'mapbox-gl.js.map']
     });
     return vendorTree;
   },
